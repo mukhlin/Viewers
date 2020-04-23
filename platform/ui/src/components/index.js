@@ -1,6 +1,7 @@
 import { StudyBrowser, Thumbnail } from './studyBrowser';
 import { LayoutButton, LayoutChooser } from './layoutButton';
 import { MeasurementTable, MeasurementTableItem } from './measurementTable';
+import { Object3DTable, Object3DTableItem } from './object3DTable';
 import { Overlay, OverlayTrigger } from './overlayTrigger';
 import { TableList, TableListItem } from './tableList';
 import { AboutContent } from './content/aboutContent/AboutContent';
@@ -35,6 +36,8 @@ export {
   LayoutChooser,
   MeasurementTable,
   MeasurementTableItem,
+  Object3DTable,
+  Object3DTableItem,
   Overlay,
   OverlayTrigger,
   QuickSwitch,

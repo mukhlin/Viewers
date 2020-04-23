@@ -1,0 +1,71 @@
+.object3DTableItem
+
+  .objectName
+    margin-top: 9px
+    overflow: hidden
+    text-overflow: ellipsis
+    overflow-wrap: normal
+    white-space: nowrap
+
+  .objectInfo
+    margin-top: 9px
+    padding-left: 9px
+    border-left: 1px solid var(--text-secondary-color)
+    color: var(--text-primary-color)
+    overflow: hidden
+    text-overflow: ellipsis
+    overflow-wrap: normal
+    white-space: nowrap
+
+  .objectActions
+    margin-left: -1px
+    padding-left: 14px
+    transition: all 0.3s ease
+    overflow: hidden
+    background-color: var(--ui-gray-darker)
+
+    .actionButton
+      background-color: transparent
+      color: var(--default-color)
+      border: none
+      outline: none
+      cursor: pointer
+      line-height: 35px
+      height: 35px
+      transition: all 0.3s ease
+
+      .label
+        margin-left: 4px
+
+      &:hover, &:active
+        color: var(--text-primary-color)
+
+.object3DTableItemTooltip
+  background-color: var(--ui-gray-darkest)
+  border: 1px solid var(--ui-border-color-active)
+  border-radius: 5px
+  padding: 5px
+
+  .tooltip-arrow
+    border: none
+
+  .tooltip-inner
+    background-color: var(--ui-gray-darkest)
+
+    .description
+      text-align: left
+
+    .separator
+      margin-top: 10px
+
+    .tags
+
+      .tag
+        color: var(--text-primary-color)
+        background-color: var(--box-background-color)
+        border-radius: 10px
+        padding: 3px 10px
+        margin-left: 4px
+
+      .firstTag
+        margin-left: 0

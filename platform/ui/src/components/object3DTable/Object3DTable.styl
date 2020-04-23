@@ -1,0 +1,35 @@
+$headerRowHeight = 63px
+
+.object3DTable
+  background-color: var(--primary-background-color)
+  height: 100%
+  width: 100%
+  display: flex
+  flex-direction: column
+
+  .object3DTableHeader
+    display: flex
+    flex-direction: row
+    background-color: var(--ui-gray-darker)
+    color: var(--text-secondary-color)
+    height: $headerRowHeight
+    line-height: $headerRowHeight
+    padding: 0 10px
+    font-size: 22px
+    font-weight: 300
+
+    .titleText
+      flex: 1
+      white-space: nowrap
+      text-overflow: ellipsis
+      overflow: hidden
+
+    .addButton
+      background-color: var(--ui-gray-darker)
+      color: var(--text-secondary-color)
+      border: none
+      outline: none
+      cursor: pointer
+
+      &:hover, &:active
+        color: var(--hover-color)
