@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { TableListItem, Icon } from '@ohif/ui';
 
@@ -28,6 +28,11 @@ const StructureSetItem = ({
   selected = false,
 }) => {
   const [isVisible, setIsVisible] = useState(visible);
+
+  useEffect(() => {
+    setIsVisible(visible);
+  }, [visible])
+
   return (
     <div className={`dcmrt-structure-set-item ${selected && 'selected'}`}>
       <TableListItem
@@ -41,7 +46,7 @@ const StructureSetItem = ({
       >
         <div>
           <div className="item-label" style={{ marginBottom: 4 }}>
-            {label}
+            <span>{label}</span>
             <Icon
               className={`eye-icon ${isVisible && '--visible'}`}
               name={isVisible ? 'eye' : 'eye-closed'}

@@ -1,7 +1,6 @@
 window.config = {
   // default: '/'
   routerBasename: '/',
-  whiteLabelling: {},
   extensions: [],
   showStudyList: true,
   filterQueryParam: false,
@@ -16,6 +15,7 @@ window.config = {
         imageRendering: 'wadors',
         thumbnailRendering: 'wadors',
         enableStudyLazyLoad: true,
+        supportsFuzzyMatching: true,
       },
     ],
   },

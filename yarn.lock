@@ -5945,18 +5945,18 @@ cornerstone-math@^0.1.8:
   resolved "https://registry.yarnpkg.com/cornerstone-math/-/cornerstone-math-0.1.8.tgz#68ab1f9e4fdcd7c5cb23a0d2eb4263f9f894f1c5"
   integrity sha512-x7NEQHBtVG7j1yeyj/aRoKTpXv1Vh2/H9zNLMyqYJDtJkNng8C4Q8M3CgZ1qer0Yr7eVq2x+Ynmj6kfOm5jXKw==
 
-cornerstone-tools@4.12.5:
-  version "4.12.5"
-  resolved "https://registry.yarnpkg.com/cornerstone-tools/-/cornerstone-tools-4.12.5.tgz#9a4a35d9851d6c81f165977aa6ede8cf228d4c80"
-  integrity sha512-tNcIQ9E2+GbfZDbbPnWmocYPi0OALlYLKQbXa3gc7rdnF8K9DsptnpGzMtiKfoWUjYfsUWrytvI/RgusXRWCTg==
+cornerstone-tools@4.15.1:
+  version "4.15.1"
+  resolved "https://registry.yarnpkg.com/cornerstone-tools/-/cornerstone-tools-4.15.1.tgz#f0b1026da9c7758defc088bb2f1e78426a23d91e"
+  integrity sha512-fJuTUJW/NDSD520jPB++tX//Kq80jPDngChHZrhx2xjj/9dCnexD9kmTX30Z0WUq0a2JEHZ6FlcOX38kSmw1hQ==
   dependencies:
     "@babel/runtime" "7.1.2"
     cornerstone-math "0.1.7"
 
-cornerstone-wado-image-loader@^3.0.0:
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/cornerstone-wado-image-loader/-/cornerstone-wado-image-loader-3.0.6.tgz#7b2be91f8f658de3a7474e029aa8314a35725132"
-  integrity sha512-1luWOh1GzkboZ3uxfu4T8vh7K9nlDiiEbQ4dYIY9oobRZVZQbQiLT8wEZPbb4JTUe7UWJISHPCNgtAU8UE9DNw==
+cornerstone-wado-image-loader@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/cornerstone-wado-image-loader/-/cornerstone-wado-image-loader-3.1.0.tgz#6007470be896678636da3188f194f5e66ed07858"
+  integrity sha512-n2yadbwK7rCHqJyh5AUmYVPUY5m7boKpheK60sXV41Z0eSZLin9Ja+P9yeAvkg0VGV+/zaBZGPUGY3YyjdWBgg==
   dependencies:
     dicom-parser "^1.8.3"
     pako "^1.0.10"
@@ -6534,10 +6534,10 @@ dateformat@^3.0.0:
   resolved "https://registry.yarnpkg.com/dateformat/-/dateformat-3.0.3.tgz#a6e37499a4d9a9cf85ef5872044d62901c9889ae"
   integrity sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==
 
-dcmjs@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/dcmjs/-/dcmjs-0.12.0.tgz#8b1634f9b66e452075295f5d1f2c5bf3dabdf03e"
-  integrity sha512-AZAnFMvzAxUv5+KWoZcxnTYflLKk0rNPeeFt2KrVAgaExFBFfDgJQh1lEgqdNlIP+XQDFrEEUmp726SQhgmVCg==
+dcmjs@^0.12.2:
+  version "0.12.2"
+  resolved "https://registry.yarnpkg.com/dcmjs/-/dcmjs-0.12.2.tgz#1c16e19c27ff43202abc7cd25c5ecd6d8bf7672e"
+  integrity sha512-B7cEVCfDi3mOLKoBYUMYy+6COjLZhtKaesNpq5XNA4IbEH4EJYVweJfiI9gsR5hypv9LAPg72xG/xrbqjy8TgQ==
   dependencies:
     "@babel/polyfill" "^7.8.3"
     "@babel/runtime" "^7.8.4"
@@ -6857,6 +6857,11 @@ dicomweb-client@^0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/dicomweb-client/-/dicomweb-client-0.5.2.tgz#aa5a4a6a5044b0702bb0a8a2662c86cd16901951"
   integrity sha512-e11n2+g7HfBuMyopWq76W11eSZJ707g4U1XiO8URA+23aoe0g1kGAtlPB29NKXl7zX7RznTJ7wfRBxFkW6EJDA==
+
+dicomweb-client@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/dicomweb-client/-/dicomweb-client-0.6.0.tgz#5e35ada52fe0155af1cc1f0e84f9c7f76477f92d"
+  integrity sha512-VAkBg4W6odIo2XsFxqjN/rptd7bQ8oHpRuKH5d46E9BUIPzRschazE8Dx1xg7/l3N3f1M70jB7yJ339arAXiDQ==
 
 diff-sequences@^24.9.0:
   version "24.9.0"
@@ -8430,6 +8435,11 @@ file-loader@^3.0.1:
     loader-utils "^1.0.2"
     schema-utils "^1.0.0"
 
+file-saver@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/file-saver/-/file-saver-2.0.2.tgz#06d6e728a9ea2df2cce2f8d9e84dfcdc338ec17a"
+  integrity sha512-Wz3c3XQ5xroCxd1G8b7yL0Ehkf0TC9oYC6buPFkNnU9EnaPlifeAFCyCh+iewXTyFRcg0a6j3J7FmJsIhlhBdw==
+
 file-selector@^0.1.11:
   version "0.1.12"
   resolved "https://registry.yarnpkg.com/file-selector/-/file-selector-0.1.12.tgz#fe726547be219a787a9dcc640575a04a032b1fd0"
@@ -9099,6 +9109,11 @@ gl-matrix@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/gl-matrix/-/gl-matrix-3.1.0.tgz#f5b2de17d8fed95a79e5025b10cded0ab9ccbed0"
   integrity sha512-526NA+3EA+ztAQi0IZpSWiM0fyQXIp7IbRvfJ4wS/TjjQD0uv0fVybXwwqqSOlq33UckivI0yMDlVtboWm3k7A==
+
+gl-matrix@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/gl-matrix/-/gl-matrix-3.3.0.tgz#232eef60b1c8b30a28cbbe75b2caf6c48fd6358b"
+  integrity sha512-COb7LDz+SXaHtl/h4LeaFcNdJdAQSDeVqjiIihSXNrkWObZLhDI4hIkZC11Aeqp7bcE72clzB0BnDXr2SmslRA==
 
 gl-preserve-state@^1.0.0:
   version "1.0.0"
@@ -11416,6 +11431,16 @@ jszip@3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/jszip/-/jszip-3.2.2.tgz#b143816df7e106a9597a94c77493385adca5bd1d"
   integrity sha512-NmKajvAFQpbg3taXQXr/ccS2wcucR1AZ+NtyWp2Nq7HHVsXhcJFR8p0Baf32C2yVvBylFWVeKf+WI2AnvlPhpA==
+  dependencies:
+    lie "~3.3.0"
+    pako "~1.0.2"
+    readable-stream "~2.3.6"
+    set-immediate-shim "~1.0.1"
+
+jszip@^3.2.2:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/jszip/-/jszip-3.4.0.tgz#1a69421fa5f0bb9bc222a46bca88182fba075350"
+  integrity sha512-gZAOYuPl4EhPTXT0GjhI3o+ZAz3su6EhLrKUoAivcKqyqC7laS5JEv4XWZND9BgcDcF83vI85yGbDmDR6UhrIg==
   dependencies:
     lie "~3.3.0"
     pako "~1.0.2"
@@ -15578,10 +15603,10 @@ react-codemirror2@^6.0.0:
   resolved "https://registry.yarnpkg.com/react-codemirror2/-/react-codemirror2-6.0.0.tgz#180065df57a64026026cde569a9708fdf7656525"
   integrity sha512-D7y9qZ05FbUh9blqECaJMdDwKluQiO3A9xB+fssd5jKM7YAXucRuEOlX32mJQumUvHUkHRHqXIPBjm6g0FW0Ag==
 
-react-cornerstone-viewport@^2.3.6:
-  version "2.3.6"
-  resolved "https://registry.yarnpkg.com/react-cornerstone-viewport/-/react-cornerstone-viewport-2.3.6.tgz#1c76bd37c95284254767296952845bacd3b810a4"
-  integrity sha512-MBs1Mgl0g0YswkhgoaYlaPoPDVs/HZQ3Z89thHxVytvJsgnQvhc3YrR48iRaUfQj0eYoazh7AL/lLCfd8veFKA==
+react-cornerstone-viewport@2.3.8:
+  version "2.3.8"
+  resolved "https://registry.yarnpkg.com/react-cornerstone-viewport/-/react-cornerstone-viewport-2.3.8.tgz#7af8360f29bca986ae4e36b4e503269b88ddc52f"
+  integrity sha512-aiG2uVNrDY6SQx4t/HBxIA3zsMsCwT+6TpcXK9qSSoXhs+X6OTmYEKncWUqL0jtxU1yfh6JTUz8ARTg03gtF+A==
   dependencies:
     classnames "^2.2.6"
     date-fns "^2.2.1"
@@ -16004,10 +16029,10 @@ react-transition-group@^4.1.1:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react-vtkjs-viewport@^0.8.3:
-  version "0.8.4"
-  resolved "https://registry.yarnpkg.com/react-vtkjs-viewport/-/react-vtkjs-viewport-0.8.4.tgz#6bd9837d7762b845e77f053fb8fbf4469428d594"
-  integrity sha512-b90ENJzmStiahxVox+7mMwZij3NVUu//jE07PV2Qtp6E7q/eLXn6ZUwcEt9w5YHN36xLZVcx9b53ztLcXVgh/Q==
+react-vtkjs-viewport@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/react-vtkjs-viewport/-/react-vtkjs-viewport-0.9.0.tgz#5a7890643e511946f960db6b05142318be2dfe80"
+  integrity sha512-kjpNr1n+eW0nU736HH07IsSYQXphxfn/RBvKtpBer9tNsl+FyLH8h+uY8KWdv8kVBHkEoaH6/srxB0JBa8l+jA==
   dependencies:
     date-fns "^2.2.1"
     gl-matrix "^3.1.0"
