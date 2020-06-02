@@ -2,12 +2,10 @@ import './Object3DTableItem.styl';
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withTranslation } from '../../contextProviders';
-import { Icon, OverlayTrigger, TableListItem, Tooltip } from '../../index';
+import { Icon, OverlayTrigger, TableListItem, Tooltip } from '@ohif/ui';
 
-class Object3DTableItem extends Component {
+export class Object3DTableItem extends Component {
   static propTypes = {
-    t: PropTypes.func,
     selected: PropTypes.bool,
     itemIndex: PropTypes.number.isRequired,
     objectData: PropTypes.object.isRequired,
@@ -81,7 +79,7 @@ class Object3DTableItem extends Component {
     return (
       <div>
         <div className="objectName">{objectName}</div>
-        <div className="objectInfo">{this.props.t('ObjectInfo', { startFrame, finalFrame, volume })}</div>
+        <div className="objectInfo">{`Frames ${startFrame}-${finalFrame}, ${volume} mm3`}</div>
       </div>
     );
   }
@@ -90,7 +88,7 @@ class Object3DTableItem extends Component {
     return (
       <button key={label} className="actionButton" onClick={onClick}>
         <Icon name={icon} width="14px" height="14px" />
-        <span className="label">{this.props.t(label)}</span>
+        <span className="label">{label}</span>
       </button>
     );
   };
@@ -121,6 +119,3 @@ class Object3DTableItem extends Component {
   };
 
 }
-
-const connectedComponent = withTranslation('Object3DTable')(Object3DTableItem);
-export { connectedComponent as Object3DTableItem };

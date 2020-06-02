@@ -2,13 +2,11 @@ import './Object3DTable.styl';
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withTranslation } from '../../contextProviders';
-import { Icon, ScrollableArea, TableList } from '../../index';
+import { Icon, ScrollableArea, TableList } from '@ohif/ui';
 import { Object3DTableItem } from './Object3DTableItem';
 
-class Object3DTable extends Component {
+export class Object3DTable extends Component {
   static propTypes = {
-    t: PropTypes.func,
     objectCollection: PropTypes.array.isRequired,
     onAddClick: PropTypes.func,
     onItemClick: PropTypes.func,
@@ -26,10 +24,10 @@ class Object3DTable extends Component {
       <div className="object3DTable">
         <div className="object3DTableHeader">
           <div className="titleText">
-            {this.props.t('3D Objects')}
+            3D Objects
           </div>
           {this.props.onAddClick && (
-            <button className="addButton" onClick={this.props.onAddClick}>
+            <button className="addButton" onClick={this.onAddClick}>
               <Icon name="plus" />
             </button>
           )}
@@ -54,6 +52,12 @@ class Object3DTable extends Component {
     );
   };
 
+  onAddClick = () => {
+    if (this.props.onAddClick) {
+      this.props.onAddClick();
+    }
+  };
+
   onItemClick = (objectData) => {
     this.setState({
       selectedObjectName: objectData.objectName,
@@ -65,7 +69,3 @@ class Object3DTable extends Component {
   };
 
 }
-
-const connectedComponent = withTranslation('Object3DTable')(Object3DTable);
-export { connectedComponent as Object3DTable };
-export default connectedComponent;

@@ -1,9 +1,0 @@
-{
-  "3D Objects": "3D Objects",
-  "Rename": "Rename",
-  "Edit": "Edit",
-  "Delete": "Delete",
-  "ObjectInfo": "Frames {{startFrame}}-{{finalFrame}}, {{volume}} mm3",
-  "Set start frame": "Set start frame",
-  "Set final frame": "Set final frame"
-}

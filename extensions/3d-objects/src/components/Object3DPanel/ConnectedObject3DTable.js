@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Object3DTable } from '@ohif/ui';
+import { Object3DTable } from '../Object3DTable/Object3DTable';
 
 const mapStateToProps = state => {
   // UI test data to be removed
@@ -30,8 +30,6 @@ const mapStateToProps = state => {
       finalFrame: 63,
       volume: 36.5,
     }],
-    onAddClick: () => alert('Add new object'),
-    onRenameClick: (objectData) => alert(`Rename ${objectData.objectName} object`),
     onEditClick: (objectData) => alert(`Edit ${objectData.objectName} object`),
     onDeleteClick: (objectData) => alert(`Delete ${objectData.objectName} object`),
   };
