@@ -1,0 +1,71 @@
+$headerRowHeight = 63px
+
+.object3DEditPanel
+  background-color: var(--primary-background-color)
+  height: 100%
+  width: 100%
+  display: flex
+  flex-direction: column
+
+  .headerPanel
+    background-color: var(--ui-gray-darker)
+    color: var(--text-secondary-color)
+    height: $headerRowHeight
+    line-height: $headerRowHeight
+    padding: 0 10px
+    font-size: 22px
+    font-weight: 300
+    white-space: nowrap
+    text-overflow: ellipsis
+    overflow: hidden
+
+  .frameList
+    flex: 1
+
+    .frameItem
+      width: 100%
+      height: 40px
+      outline: none
+      cursor: pointer
+      border: none
+      border-bottom: 1px solid var(--ui-border-color)
+      background-color: var(--primary-background-color)
+      color: var(--text-secondary-color)
+      text-align: left
+      font-size: 14px
+
+      &:hover, &:active
+        color: var(--hover-color)
+
+      &.active
+        background-color: var(--ui-gray)
+
+  .footerPanel
+    .frameRangeButtons
+      .button
+        width: 100%
+        height: 50px
+        border: none
+        outline: none
+        cursor: pointer
+        margin-bottom: 2px
+        background-color: var(--ui-gray-darker)
+        color: var(--text-secondary-color)
+        text-align: left
+
+        .text
+          font-weight: bold
+          font-size: 14px
+          margin-left: 5px
+
+        &:hover, &:active
+          color: var(--hover-color)
+
+    .actionButtons
+      display: flex
+      flex-shrink: align-items
+      background-color: var(--ui-gray-darker)
+      justify-content: space-between
+
+      .button
+        margin: 10px

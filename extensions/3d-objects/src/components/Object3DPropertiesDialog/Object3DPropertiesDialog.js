@@ -1,54 +1,40 @@
-import './Object3DPropertiesDialog.styl';
-
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { SimpleDialog } from '@ohif/ui';
 
-const Object3DPropertiesDialog = (props) => {
-  const { objectData = {}, onClose, onSubmit } = props;
+import './Object3DPropertiesDialog.styl';
+
+const Object3DPropertiesDialog = ({ objectData = {}, onClose, onSubmit }) => {
   const [ objectName, setObjectName ] = useState(objectData.objectName || '');
   const [ description, setDescription ] = useState(objectData.description || '');
-  const [ objectNameId ] = useState(`object-name-${Date.now()}`);
-
-  const onObjectNameChange = (event) => {
-    setObjectName(event.target.value);
-  };
-
-  const onDescriptionChange = (event) => {
-    setDescription(event.target.value);
-  };
-
-  const onSubmitClick = () => {
-    if (objectName) {
-      onSubmit({ ...objectData, objectName, description });
-    } else {
-      document.getElementById(objectNameId).focus();
-    }
-  };
 
   return (
     <SimpleDialog
       headerTitle="Save Object"
       rootClass="Object3DPropertiesDialog"
       onClose={onClose}
-      onConfirm={onSubmitClick}
+      onConfirm={() => {
+        if (objectName) {
+          onSubmit({ ...objectData, objectName, description });
+        } else {
+          document.getElementById('3d-object-name').focus();
+        }
+      }}
     >
       <input
         required
-        id={objectNameId}
-        name="object-name"
+        id="3d-object-name"
         className="input"
         type="text"
         placeholder="Object name"
         value={objectName}
-        onChange={onObjectNameChange}
+        onChange={(event) => setObjectName(event.target.value)}
       />
       <textarea
-        name="description"
         className="input textarea"
         placeholder="Notes"
         rows="3"
-        onChange={onDescriptionChange}
+        onChange={(event) => setDescription(event.target.value)}
         value={description}
       />
     </SimpleDialog>
