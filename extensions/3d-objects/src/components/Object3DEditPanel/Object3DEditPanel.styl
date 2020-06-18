@@ -40,6 +40,10 @@ $headerRowHeight = 63px
       &.active
         background-color: var(--ui-gray)
 
+      &.highlighted
+        font-weight: bold
+        color: var(--ui-yellow)
+
   .footerPanel
     .frameRangeButtons
       .button
@@ -60,6 +64,9 @@ $headerRowHeight = 63px
 
         &:hover, &:active
           color: var(--hover-color)
+
+        &:disabled
+          color: var(--ui-gray-light)
 
     .actionButtons
       display: flex

@@ -6,7 +6,7 @@ import { Icon, OverlayTrigger, TableListItem, Tooltip } from '@ohif/ui';
 import './Objects3DTableItem.styl';
 
 const ItemText = ({ objectData }) => {
-  const { objectName, startFrame, finalFrame, volume } = objectData;
+  const { objectName, startFrame = 1, finalFrame = 1, volume = 0 } = objectData;
   return (
     <>
       <div className="objectName">{objectName}</div>

@@ -8,9 +8,9 @@ import Object3DEditPanel from '../Object3DEditPanel/Object3DEditPanel';
 const OBJECT_COLLECTION_TEST_DATA = [
   {
     objectName: 'Test Object 0',
-    startFrame: 20,
-    finalFrame: 63,
-    volume: 25.5,
+    //startFrame: 20,
+    //finalFrame: 63,
+    //volume: 25.5,
   }, {
     objectName: 'Test Object 1',
     description: 'Description 1',
@@ -20,15 +20,15 @@ const OBJECT_COLLECTION_TEST_DATA = [
   }, {
     objectName: "Test Object 2",
     tags: ['Tag 1', 'Tag 2', 'Tag 3'],
-    startFrame: 20,
-    finalFrame: 63,
+    startFrame: 10,
+    finalFrame: 30,
     volume: 36.5,
   }, {
     objectName: "Test Object 3",
     description: 'Description 3',
     tags: ['Tag 1', 'Tag 2', 'Tag 3'],
-    startFrame: 20,
-    finalFrame: 63,
+    startFrame: 40,
+    finalFrame: 50,
     volume: 36.5,
   },
 ];
@@ -41,7 +41,7 @@ const Objects3DPanel = ({
   activeViewportIndex,
   viewportSpecificData,
 }) => {
-  const [ selectedObject, setSelectedObject ] = useState();
+  const [ selectedObject, setSelectedObject ] = useState({});
 
   const openPropertiesDialog = (objectData) => {
     const { UIDialogService } = servicesManager.services;
@@ -68,25 +68,26 @@ const Objects3DPanel = ({
     });
   };
 
-  if (selectedObject) {
+  if (selectedObject.objectName) {
     return (
       <Object3DEditPanel
         objectData={selectedObject}
-        frameCount={viewportSpecificData.numImageFrames}
-        activeFrame={viewportSpecificData.frameIndex}
+        frameCount={viewportSpecificData.numImageFrames || 0}
+        activeFrame={(viewportSpecificData.frameIndex || 0) + 1}
         onFrameClick={(frameIndex) => {
           const { StudyInstanceUID, SOPInstanceUID } = viewportSpecificData;
           commandsManager.runCommand('jumpToImage', {
             StudyInstanceUID,
             SOPInstanceUID,
             activeViewportIndex,
-            frameIndex,
+            frameIndex: frameIndex - 1,
           });
         }}
-        onSetStartFrameClick={() => {}}
-        onSetFinalFrameClick={() => {}}
-        onCancelClick={() => setSelectedObject(undefined)}
-        onSaveClick={() => {}}
+        onCancelClick={() => setSelectedObject({})}
+        onSaveClick={(objectData) => {
+          Object.assign(selectedObject, objectData);
+          setSelectedObject({});
+        }}
       />
     );
   }
@@ -110,7 +111,7 @@ Objects3DPanel.propTypes = {
 const mapStateToProps = (state) => {
   console.log(state);
   const { activeViewportIndex } = state.viewports;
-  const viewportSpecificData = state.viewports.viewportSpecificData[activeViewportIndex];
+  const viewportSpecificData = state.viewports.viewportSpecificData[activeViewportIndex] || {};
   return {
     activeViewportIndex,
     viewportSpecificData,

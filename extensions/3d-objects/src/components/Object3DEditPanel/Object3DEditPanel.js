@@ -1,32 +1,42 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import { Icon, ScrollableArea } from '@ohif/ui';
 
 import './Object3DEditPanel.styl';
 
 const FrameItem = ({
-  index,
-  active,
+  frameIndex,
+  activeFrame,
+  startFrame,
+  finalFrame,
   onClick
 }) => {
   const classNames = ['frameItem'];
-  if (active) {
+  if (frameIndex >= startFrame && frameIndex <= finalFrame) {
+    classNames.push('highlighted');
+  }
+  if (frameIndex === activeFrame) {
     classNames.push('active');
   }
   return (
-    <button className={classNames.join(' ')} onClick={() => onClick(index)}>
-      {index}
+    <button className={classNames.join(' ')} onClick={() => onClick(frameIndex)}>
+      {frameIndex}
     </button>
   );
 };
 
 FrameItem.propTypes = {
-  index: PropTypes.number.isRequired,
-  active: PropTypes.bool.isRequired,
+  frameIndex: PropTypes.number.isRequired,
+  activeFrame: PropTypes.number.isRequired,
+  startFrame: PropTypes.number.isRequired,
+  finalFrame: PropTypes.number.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
 const ActionButtons = ({
+  activeFrame,
+  startFrame,
+  finalFrame,
   onSetStartFrameClick,
   onSetFinalFrameClick,
   onCancelClick,
@@ -36,13 +46,21 @@ const ActionButtons = ({
     <>
       <div className="frameRangeButtons">
         {typeof onSetStartFrameClick === 'function' && (
-          <button className="button" onClick={onSetStartFrameClick}>
+          <button
+            className="button"
+            disabled={activeFrame > finalFrame || activeFrame === startFrame}
+            onClick={() => onSetStartFrameClick(activeFrame)}
+          >
             <Icon name="angle-double-up" />
             <span className="text">Set start frame</span>
           </button>
         )}
         {typeof onSetFinalFrameClick === 'function' && (
-          <button className="button" onClick={onSetFinalFrameClick}>
+          <button
+            className="button"
+            disabled={activeFrame < startFrame || activeFrame === finalFrame}
+            onClick={() => onSetFinalFrameClick(activeFrame)}
+          >
             <Icon name="angle-double-down" />
             <span className="text">Set final frame</span>
           </button>
@@ -61,6 +79,9 @@ const ActionButtons = ({
 };
 
 ActionButtons.propTypes = {
+  activeFrame: PropTypes.number.isRequired,
+  startFrame: PropTypes.number.isRequired,
+  finalFrame: PropTypes.number.isRequired,
   onSetStartFrameClick: PropTypes.func,
   onSetFinalFrameClick: PropTypes.func,
   onCancelClick: PropTypes.func,
@@ -72,24 +93,35 @@ const Object3DEditPanel = ({
   frameCount,
   activeFrame,
   onFrameClick,
-  onSetStartFrameClick,
-  onSetFinalFrameClick,
   onCancelClick,
   onSaveClick
 }) => {
   const { objectName } = objectData;
+  const [ startFrame, setStartFrame ] = useState(1);
+  const [ finalFrame, setFinalFrame ] = useState(1);
+
+  useEffect(() => {
+    if (frameCount > 0) {
+      setStartFrame(objectData.startFrame || 1);
+      setFinalFrame(objectData.finalFrame || frameCount);
+    }
+  }, [objectData, frameCount]);
 
   const frames = [];
   for (let index = 1; index <= frameCount; index++) {
     frames.push(
       <FrameItem
         key={index}
-        index={index}
-        active={index === activeFrame}
+        frameIndex={index}
+        activeFrame={activeFrame}
+        startFrame={startFrame}
+        finalFrame={finalFrame}
         onClick={onFrameClick}
       />
     );
   }
+
+  const writeable = typeof onSaveClick === 'function';
 
   return (
     <div className="object3DEditPanel">
@@ -97,16 +129,21 @@ const Object3DEditPanel = ({
         {objectName}
       </div>
       <div className="frameList">
-        <ScrollableArea>
+        <ScrollableArea hideScrollbar={false}>
           {frames}
         </ScrollableArea>
       </div>
       <div className="footerPanel">
         <ActionButtons
-          onSetStartFrameClick={onSetStartFrameClick}
-          onSetFinalFrameClick={onSetFinalFrameClick}
+          activeFrame={activeFrame}
+          startFrame={startFrame}
+          finalFrame={finalFrame}
+          onSetStartFrameClick={writeable ? (frameIndex) => setStartFrame(frameIndex) : undefined}
+          onSetFinalFrameClick={writeable ? (frameIndex) => setFinalFrame(frameIndex) : undefined}
           onCancelClick={onCancelClick}
-          onSaveClick={onSaveClick}
+          onSaveClick={writeable ? () => {
+            onSaveClick({ ...objectData, startFrame, finalFrame })
+          } : undefined}
         />
       </div>
     </div>
@@ -116,10 +153,8 @@ const Object3DEditPanel = ({
 Object3DEditPanel.propTypes = {
   objectData: PropTypes.object.isRequired,
   frameCount: PropTypes.number.isRequired,
-  activeFrame: PropTypes.number,
+  activeFrame: PropTypes.number.isRequired,
   onFrameClick: PropTypes.func.isRequired,
-  onSetStartFrameClick: PropTypes.func,
-  onSetFinalFrameClick: PropTypes.func,
   onCancelClick: PropTypes.func.isRequired,
   onSaveClick: PropTypes.func,
 };
