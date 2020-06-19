@@ -78,9 +78,10 @@ const Objects3DPanel = ({
           const { StudyInstanceUID, SOPInstanceUID } = viewportSpecificData;
           commandsManager.runCommand('jumpToImage', {
             StudyInstanceUID,
+            // FIXME It looks like SOPInstanceUID is ID of instance that changes for each image while scrolling
             SOPInstanceUID,
-            activeViewportIndex,
             frameIndex: frameIndex - 1,
+            activeViewportIndex,
           });
         }}
         onCancelClick={() => setSelectedObject({})}
