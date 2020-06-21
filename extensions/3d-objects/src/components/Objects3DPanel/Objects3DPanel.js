@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import Objects3DTable from '../Objects3DTable/Objects3DTable';
 import Object3DPropertiesDialog from '../Object3DPropertiesDialog/Object3DPropertiesDialog';
 import Object3DEditPanel from '../Object3DEditPanel/Object3DEditPanel';
+import cornerstone from 'cornerstone-core';
+import cornerstoneTools from 'cornerstone-tools';
+import { TOOL } from '../../index';
 
 const OBJECT_COLLECTION_TEST_DATA = [
   {
@@ -118,5 +121,34 @@ const mapStateToProps = (state) => {
     viewportSpecificData,
   };
 };
+
+cornerstone.events.addEventListener(
+    cornerstone.EVENTS.ELEMENT_ENABLED,
+    function (event) {
+      elementEnabledHandler(event)
+    }
+);
+
+function elementEnabledHandler(event) {
+  const element = event.detail.element;
+  element.addEventListener(
+      cornerstoneTools.EVENTS.MEASUREMENT_COMPLETED,
+      function (event) {
+        onMeasurementCompleted(event)
+      }
+  );
+}
+
+function onMeasurementCompleted(event) {
+  const detail = event.detail;
+  const toolType = detail.toolType;
+  if (toolType === TOOL) {
+    const element = cornerstone.getEnabledElement(detail.element);
+    // Get full image id
+    console.log(element.image.imageId);
+    // Get completed object
+    console.log(detail.measurementData.handles);
+  }
+}
 
 export default connect(mapStateToProps)(Objects3DPanel);

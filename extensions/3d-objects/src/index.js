@@ -1,6 +1,7 @@
 import React from 'react';
 import Objects3DPanel from './components/Objects3DPanel/Objects3DPanel';
 
+export const TOOL = 'FreehandRoi';
 export default {
   id: 'com.quantumsoft.ohif.3d-objects',
 
@@ -18,7 +19,7 @@ export default {
               icon: 'liver',
               type: 'setToolActive',
               commandName: 'setToolActive',
-              commandOptions: {toolName: 'FreehandRoi'},
+              commandOptions: {toolName: TOOL},
             }
           ],
         },
